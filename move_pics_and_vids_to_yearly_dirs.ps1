@@ -12,5 +12,5 @@ $files | % { $_.LastWriteTime.Year } | select -Unique | % {
 
 foreach ($file in $files) {
     $target_dir = if ($file.Extension -eq '.mp4') { $vid_dir } else { $pic_dir }    
-    mv $file.FullName $target_dir\$($_.LastWriteTime.Year) -Force
+    mv $file.FullName $target_dir\$($file.LastWriteTime.Year) -Force
 }
